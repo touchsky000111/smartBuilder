@@ -19,6 +19,8 @@ const AboutPage = async () => {
   if (!token) {
     redirect("/signin"); // 👈 auto-redirect if not authenticated
   }
+
+  
   return (
     <>
       <Breadcrumb

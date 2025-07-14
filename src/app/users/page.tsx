@@ -1,13 +1,15 @@
-"use client";
 
+"use client"
 import Link from "next/link";
 
 import { SignIn } from "@/api/auth";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios"
 import { domain } from "@/api/auth";
+import { redirect } from "next/navigation";
 const SigninPage = () => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -15,14 +17,14 @@ const SigninPage = () => {
   const handleCreateUser = async () => {
     try {
       setLoading(true);
-      
+
       const response = await axios.post(`${domain}/api/v1/auth/register`, {
         email: email,
         password: password
       })
-      
+
       console.log("here------------>", response.data);
-      
+
 
     } catch (error) {
       setLoading(false);
@@ -30,6 +32,33 @@ const SigninPage = () => {
     }
     setLoading(false);
   };
+
+  const [token, setToken] = useState(null);
+  const [sticky, setSticky] = useState(false);
+  const handleStickyNavbar = () => {
+    if (window.scrollY >= 80) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleStickyNavbar);
+    const tokenInfo = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("token="))
+      ?.split("=")[1];
+
+    if (tokenInfo) {
+      setToken(tokenInfo);
+    } else {
+      redirect("/signin")
+    }
+  }, []);
+
+
+
   return (
     <>
       <section className="relative z-10 overflow-hidden pt-36 pb-16 md:pb-20 lg:pt-[180px] lg:pb-28">

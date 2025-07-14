@@ -8,21 +8,15 @@ export const adminMenuData: Menu[] = [
     newTab: false,
   },
   {
-    id: 2,
-    title: "Job",
-    path: "/job",
-    newTab: false,
-  },
-  {
     id: 3,
     title: "About",
-    path: "https://smartbuildsystems.com/resources/",
+    path: "/about/",
     newTab: false,
   },
   {
     id: 4,
     title: "Contact",
-    path: "https://smartbuildsystems.com/contact/",
+    path: "/contact/",
     newTab: false,
   },
   {
@@ -104,13 +98,13 @@ export const userMenuData: Menu[] = [
   {
     id: 3,
     title: "About",
-    path: "https://smartbuildsystems.com/resources/",
+    path: "/about/",
     newTab: false,
   },
   {
     id: 4,
     title: "Contact",
-    path: "https://smartbuildsystems.com/contact/",
+    path: "/contact/",
     newTab: false,
   },
   {
