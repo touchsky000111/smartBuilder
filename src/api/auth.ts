@@ -1,7 +1,7 @@
 import axios from "axios";
 
-//export const domain = process.env.NEXT_PUBLIC_API_DOMAIN || "http://localhost:8080";
-export const domain = "http://198.23.235.73:8080";
+export const domain = process.env.NEXT_PUBLIC_API_DOMAIN || "http://localhost:8080";
+// export const domain = "http://198.23.235.73:8080";
 
 export async function SignUp({
   email,

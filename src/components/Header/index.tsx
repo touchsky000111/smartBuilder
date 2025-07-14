@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
-import menuData from "./menuData";
+import {adminMenuData} from "./menuData";
 
 const Header = () => {
   // Navbar toggle
@@ -12,6 +12,8 @@ const Header = () => {
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
+
+
 
   // Sticky Navbar
   const [sticky, setSticky] = useState(false);
@@ -45,6 +47,9 @@ const Header = () => {
   };
 
   const usePathName = usePathname();
+
+  const [menuData, setMenuData] = useState(adminMenuData)
+
 
   return (
     <>
