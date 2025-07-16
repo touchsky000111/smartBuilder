@@ -12,6 +12,7 @@ interface Work {
   img1: string;
   img2: string;
   workCategory: number;
+  urlLink: string;
 }
 
 interface CategoryGridProps {
@@ -86,27 +87,29 @@ const CategoryGrid = ({ categories, works, onCategorySelect, onBack }: CategoryG
           </div>
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-6">
             {filteredWorks.map((work, index) => (
-              <div
-                key={index}
-                className="flex flex-col justify-center items-start shadow-lg rounded-lg p-1 border-2 hover:border-2 hover:border-[#137bc4] cursor-pointer"
-                style={{
-                  boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px',
-                }}
-              >
-                <div className="w-full flex justify-start items-center px-2">
-                  <span className="text-sm sm:text-base">{work.title}</span>
-                </div>
-                <div className="w-full h-[200px] sm:h-[250px] flex flex-col justify-end items-center">
-                  <div className="w-full h-[80%] flex flex-col">
-                    <div className="w-full h-1/2 flex">
-                      <img src={work.img1} alt="" width="100%" height="100px" />
-                    </div>
-                    <div className="w-full h-1/2 flex">
-                      <img src={work.img2} alt="" width="100%" height="100px" />
+              <a href={work.urlLink} key={index}>
+                <div
+                  key={index}
+                  className="flex flex-col justify-center items-start shadow-lg rounded-lg p-1 border-2 hover:border-2 hover:border-[#137bc4] cursor-pointer"
+                  style={{
+                    boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px',
+                  }}
+                >
+                  <div className="w-full flex justify-start items-center px-2">
+                    <span className="text-sm sm:text-base">{work.title}</span>
+                  </div>
+                  <div className="w-full h-[200px] sm:h-[250px] flex flex-col justify-end items-center">
+                    <div className="w-full h-[80%] flex flex-col">
+                      <div className="w-full h-1/2 flex">
+                        <img src={work.img1} alt="" width="100%" height="100px" />
+                      </div>
+                      <div className="w-full h-1/2 flex">
+                        <img src={work.img2} alt="" width="100%" height="100px" />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
