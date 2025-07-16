@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sign Up Page | CEED CIVIL Engineering",
-  description: "This is Sign Up Page for Ceed Civil Engineering",
+  title: "Sign Up Page | My Designer Plus",
+  description: "This is Sign Up Page for My Designer Plus",
 };
 
 export default function SignupLayout({

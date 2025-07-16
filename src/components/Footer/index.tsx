@@ -6,7 +6,7 @@ const Footer = () => {
       <footer className="w-full max-w-7xl dark:bg-black relative z-10 mt-4">
         <div className="container text-xs">
           <p>
-            © 2025 - CEED CIVIL ENGINEERING
+            © 2025 - My Designer Plus
             <span className="float-right">Version 1.0</span>
           </p>
         </div>

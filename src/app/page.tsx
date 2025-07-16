@@ -14,8 +14,8 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "CEED CIVIL Engineering",
-  description: "This is Home for Ceed Civil Engineering",
+  title: "My Designer Plus",
+  description: "This is Home for My Designer Plus",
   // other metadata
 };
 

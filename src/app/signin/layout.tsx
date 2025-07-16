@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sign In Page | CEED CIVIL Engineering",
-  description: "This is Sign In Page for Ceed Civil Engineering",
+  title: "Sign In Page | My Designer Plus",
+  description: "This is Sign In Page for My Designer Plus",
   // other metadata
 };
 export default function SigninLayout({

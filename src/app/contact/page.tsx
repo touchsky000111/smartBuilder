@@ -6,8 +6,8 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Contact Page | CEED CIVIL Engineering",
-  description: "This is Contact Page for Ceed Civil Engineering",
+  title: "Contact Page | My Designer Plus",
+  description: "This is Contact Page for My Designer Plus",
   // other metadata
 };
 
@@ -23,7 +23,7 @@ const ContactPage = async () => {
       <Breadcrumb
         pageName="Contact Page"
         description="Have questions about our services or want to discuss your next civil engineering project?
-At Ceed Civil Engineering, we’re here to help you build smarter, safer, and more efficiently."
+At My Designer Plus, we’re here to help you build smarter, safer, and more efficiently."
       />
 
       <Contact />
