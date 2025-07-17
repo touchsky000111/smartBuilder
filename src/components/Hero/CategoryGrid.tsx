@@ -81,9 +81,6 @@ const CategoryGrid = ({ categories, works, onCategorySelect, onBack }: CategoryG
               <Image src={FolderOpenImage} width={20} height={20} alt="" />
               {categoryTitle}
             </span>
-            <button className="px-2 py-1 gap-3 flex justify-center items-center cursor-pointer bg-[#4caf60] text-white text-sm rounded-sm hover:opacity-80">
-              Save Default
-            </button>
           </div>
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-6">
             {filteredWorks.map((work, index) => (

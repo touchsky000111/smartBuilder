@@ -182,9 +182,6 @@ const Hero = () => {
                         <ArrowLeft className="h-4 w-4 text-gray-400" />
                       </button>
                     </div>
-                    <button className="flex cursor-pointer items-center justify-center gap-3 rounded-sm bg-[#4caf60] px-2 py-1 text-xs text-white hover:opacity-80 sm:text-sm">
-                      Save Default
-                    </button>
                   </div>
                 )}
                 <CategoryGrid

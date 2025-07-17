@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import { adminMenuData } from "./menuData";
+import { redirect } from "next/navigation";
 
 const Header = () => {
   // Navbar toggle
@@ -23,6 +24,7 @@ const Header = () => {
     }
   };
   const [token, setToken] = useState(null);
+  const [isLoggedin, setIsLoggedIn] = useState(false)
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
     const tokenInfo = document.cookie
@@ -31,6 +33,7 @@ const Header = () => {
       ?.split("=")[1];
     if (tokenInfo) {
       setToken(tokenInfo);
+      setIsLoggedIn(true)
     }
   }, []);
 
@@ -48,6 +51,12 @@ const Header = () => {
 
   const [menuData, setMenuData] = useState(adminMenuData)
 
+  const handleLogOut = () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    setToken(null);
+    setIsLoggedIn(false);
+    redirect("/signin")
+  };
 
   return (
     <>
@@ -152,18 +161,24 @@ const Header = () => {
                 </nav>
               </div>
               <div className="flex items-center justify-end space-x-2 md:space-x-4 lg:pr-0">
-                <Link
-                  href="/signin"
-                  className="px-4 md:px-7 py-2 md:py-3 text-sm md:text-base font-medium hover:opacity-70 md:block flex lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 hover:text-[#ffa500] text-white"
-                >
-                  Log in
-                </Link>
-                <Link
-                  href="/signup"
-                  className="px-4 md:px-7 py-2 md:py-3 text-sm md:text-base font-medium hover:opacity-70 md:block hover:text-[#ffa500] text-white"
-                >
-                  Register
-                </Link>
+                {
+                  isLoggedin == true ? <button className="cursor" onClick={handleLogOut}>
+                    Log out
+                  </button> : <>
+                    <Link
+                      href="/signin"
+                      className="px-4 md:px-7 py-2 md:py-3 text-sm md:text-base font-medium hover:opacity-70 md:block flex lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 hover:text-[#ffa500] text-white"
+                    >
+                      Log in
+                    </Link>
+                    <Link
+                      href="/signup"
+                      className="px-4 md:px-7 py-2 md:py-3 text-sm md:text-base font-medium hover:opacity-70 md:block hover:text-[#ffa500] text-white"
+                    >
+                      Register
+                    </Link>
+                  </>
+                }
                 <div className="ml-2 md:ml-4">
                   <ThemeToggler />
                 </div>
